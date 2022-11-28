@@ -2,12 +2,12 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { binhLuan } from '../../services/binhLuanServices';
 import { BinhLuan, PostBinhLuan } from '../../types/binhLuanTypes';
 
-
 type InitialState = {
    isFetchContentPostBinhLuan: boolean,
    errContentPostBinhLuan?: any,
    contentPostBinhLuan?: BinhLuan
 }
+
 const initialState: InitialState = {
    isFetchContentPostBinhLuan: false
 }
@@ -29,12 +29,10 @@ export const { reducer: postBinhLuanReducer, actions: postBinhLuanActions } = cr
             state.isFetchContentPostBinhLuan = false
             state.errContentPostBinhLuan = undefined
             state.contentPostBinhLuan = action.payload
-            // console.log(action.payload)
          }).addCase(postBinhLuan.rejected, (state, action) => {
             state.isFetchContentPostBinhLuan = false
             state.contentPostBinhLuan = undefined
             state.errContentPostBinhLuan = action.payload
-            // console.log(action.payload)
          })
    }
 });

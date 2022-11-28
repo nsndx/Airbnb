@@ -7,6 +7,7 @@ type InitialState = {
    errContentPutUser?: any,
    contentPutUser?: NguoiDung
 }
+
 const initialState: InitialState = {
    isFetchContentPutUser: false
 }
@@ -28,12 +29,10 @@ export const { reducer: putUserIDReducer, actions: putUserIDActions } = createSl
             state.isFetchContentPutUser = false
             state.errContentPutUser = undefined
             state.contentPutUser = action.payload
-            // console.log(action.payload)
          }).addCase(putUsersID.rejected, (state, action) => {
             state.isFetchContentPutUser = false
             state.contentPutUser = undefined
             state.errContentPutUser = action.payload
-            // console.log(action.payload)
          })
    }
 });

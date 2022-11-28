@@ -2,13 +2,12 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { auth } from '../../services/authServices';
 import { DangKi, PostDangKi } from '../../types/authTypes';
 
-
-
 type InitialState = {
    isFetchContentDangKi: boolean,
    errContentDangKi?: any,
    contentDangKi?: DangKi
 }
+
 const initialState: InitialState = {
    isFetchContentDangKi: false
 }
@@ -30,12 +29,10 @@ export const { reducer: dangKiReducer, actions: dangKiActions } = createSlice({
             state.isFetchContentDangKi = false
             state.errContentDangKi = undefined
             state.contentDangKi = action.payload
-            // console.log(action.payload)
          }).addCase(dangKi.rejected, (state, action) => {
             state.isFetchContentDangKi = false
             state.contentDangKi = undefined
             state.errContentDangKi = action.payload
-            // console.log(action.payload)
          })
    }
 });

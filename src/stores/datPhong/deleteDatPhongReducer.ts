@@ -1,12 +1,12 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { datPhong } from '../../services/datPhongServices';
 
-
 type InitialState = {
    isFetchMessageDeleteDatPhong: boolean,
    errMessageDeleteDatPhong?: any,
    messageDeleteDatPhong?: string
 }
+
 const initialState: InitialState = {
    isFetchMessageDeleteDatPhong: false
 }
@@ -28,12 +28,10 @@ export const { reducer: deleteDatPhongReducer, actions: deleteDatPhongActions } 
             state.isFetchMessageDeleteDatPhong = false
             state.errMessageDeleteDatPhong = undefined
             state.messageDeleteDatPhong = action.payload
-            // console.log(action.payload)
          }).addCase(deleteDatPhong.rejected, (state, action) => {
             state.isFetchMessageDeleteDatPhong = false
             state.messageDeleteDatPhong = undefined
             state.errMessageDeleteDatPhong = action.payload
-            // console.log(action.payload)
          })
    }
 });

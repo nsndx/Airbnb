@@ -7,6 +7,7 @@ type InitialState = {
    errContentPostUser?: any,
    contentPostUser?: NguoiDung
 }
+
 const initialState: InitialState = {
    isFetchContentPostUser: false
 }
@@ -28,12 +29,10 @@ export const { reducer: postUserReducer, actions: postUserActions } = createSlic
             state.isFetchContentPostUser = false
             state.errContentPostUser = undefined
             state.contentPostUser = action.payload
-            // console.log(action.payload)
          }).addCase(postUser.rejected, (state, action) => {
             state.isFetchContentPostUser = false
             state.contentPostUser = undefined
             state.errContentPostUser = action.payload
-            // console.log(action.payload)
          })
    }
 });

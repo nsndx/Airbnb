@@ -5,7 +5,6 @@ import styled from 'styled-components'
 import { RootState } from '../../../stores/configStore'
 import { postViTri, postViTriActions } from '../../../stores/viTri/postViTriReducer'
 
-
 type Props = {
    setDisplay: (display: string) => void
 }
@@ -15,7 +14,6 @@ const PopupThemViTri: React.FC<Props> = (props) => {
    const dispatch = useDispatch<any>()
    const [urlHinhAnh, setUrlHinhAnh] = useState('')
    const { contentPostViTri, errContentPostViTri } = useSelector((state: RootState) => state.postViTriReducer)
-   // console.log(contentPostViTri, errContentPostViTri)
 
    return (
       <Container className='PopupThemViTri w-1/3 py-2 px-5 bg-white mx-auto mt-10 shadow '>
@@ -39,7 +37,6 @@ const PopupThemViTri: React.FC<Props> = (props) => {
          </div>
          <form onSubmit={handleSubmit(data => {
             delete data.image
-            // console.log(data)
             dispatch(postViTri(data))
          })}>
             <div className='mb-2'>
@@ -75,6 +72,7 @@ const PopupThemViTri: React.FC<Props> = (props) => {
             <div className='mb-2'>
                <img src={urlHinhAnh} alt="..." className='w-40 bg-gray-200' />
             </div>
+            
             {contentPostViTri ? '' : <div className='text-center'>
                <button className="px-7 py-3 bg-amber-800 text-white font-medium text-sm uppercase rounded shadow-md hover:bg-amber-500 transition duration-300">Thêm</button>
             </div>}

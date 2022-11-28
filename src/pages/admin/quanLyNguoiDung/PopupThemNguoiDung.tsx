@@ -1,5 +1,5 @@
 import moment from 'moment'
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
@@ -14,7 +14,6 @@ const PopupThemNguoiDung: React.FC<Props> = (props) => {
    const { register, handleSubmit, reset } = useForm()
    const dispatch = useDispatch<any>()
    const { contentPostUser, errContentPostUser } = useSelector((state: RootState) => state.postUserReducer)
-
 
    return (
       <Container className='PopupThemNguoiDung w-1/3 py-2 px-5 bg-white mx-auto mt-10 shadow '>
@@ -38,7 +37,6 @@ const PopupThemNguoiDung: React.FC<Props> = (props) => {
             {contentPostUser ? <p className='text-center text-lg text-green-500 m-0'>Thêm người dùng thành công!</p> : <p className='text-center text-red-500 m-0'>{errContentPostUser}</p>}
          </div>
          <form onSubmit={handleSubmit(data => {
-            // console.log(data)
             data.gender === 'true' ? data.gender = true : data.gender = false
             data.birthday = moment(data.birthday).format('DD/MM/YYYY')
             dispatch(postUser(data))
@@ -77,6 +75,7 @@ const PopupThemNguoiDung: React.FC<Props> = (props) => {
                   <option value='USER'>USER</option>
                </select>
             </div>
+            
             {contentPostUser ? '' : <div className='text-center'>
                <button className="px-7 py-3 bg-amber-800 text-white font-medium text-sm uppercase rounded shadow-md hover:bg-amber-500 transition duration-300">Thêm</button>
             </div>}

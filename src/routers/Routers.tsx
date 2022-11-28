@@ -14,7 +14,7 @@ import DanhSachPhong from '../pages/danhSachPhong/DanhSachPhong'
 import ThongTinCaNhan from '../pages/thongTinCaNhan/ThongTinCaNhan'
 import TrangChu from '../pages/trangChu/TrangChu'
 
-const Routers = () => {
+const Routers: React.FC = () => {
    return useRoutes([
       {
          path: '',
@@ -51,38 +51,38 @@ const Routers = () => {
          ]
       },
       {
-         path:'admin',
-         element: <AdminLayout/>,
-         children:[
+         path: 'admin',
+         element: <AdminLayout />,
+         children: [
             {
-               path:'quanlynguoidung',
-               element:<QuanLyNguoiDung/>
+               path: 'quanlynguoidung',
+               element: <QuanLyNguoiDung />
             },
             {
-               path:'quanlythongtinvitri',
-               element:<QuanLyThongTinViTri/>
+               path: 'quanlythongtinvitri',
+               element: <QuanLyThongTinViTri />
             },
             {
-               path:'quanlythongtinphong',
-               element:<QuanLyThongTinPhong/>
+               path: 'quanlythongtinphong',
+               element: <QuanLyThongTinPhong />
             },
             {
-               path:'quanlydatphong/:id',
-               element:<QuanLyDatPhong/>
+               path: 'quanlydatphong/:id',
+               element: <QuanLyDatPhong />
             },
          ]
       },
       {
-         path:'user',
-         element: <UserLayout/>,
-         children:[
+         path: 'user',
+         element: <UserLayout />,
+         children: [
             {
-               path:'dangki',
-               element:<DangKi/>
+               path: 'dangki',
+               element: <DangKi />
             },
             {
-               path:'dangnhap',
-               element:<DangNhap/>
+               path: 'dangnhap',
+               element: <DangNhap />
             },
          ]
       }

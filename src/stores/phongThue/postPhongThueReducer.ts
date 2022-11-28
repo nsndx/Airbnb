@@ -7,6 +7,7 @@ type InitialState = {
    errContentPostPhongThue?: any,
    contentPostPhongThue?: PhongThue
 }
+
 const initialState: InitialState = {
    isFetchContentPostPhongThue: false
 }
@@ -28,12 +29,10 @@ export const { reducer: postPhongThueReducer, actions: postPhongThueActions } = 
             state.isFetchContentPostPhongThue = false
             state.errContentPostPhongThue = undefined
             state.contentPostPhongThue = action.payload
-            //   console.log(action.payload)
          }).addCase(postPhongThue.rejected, (state, action) => {
             state.isFetchContentPostPhongThue = false
             state.contentPostPhongThue = undefined
             state.errContentPostPhongThue = action.payload
-            // console.log(action.payload)
          })
    }
 

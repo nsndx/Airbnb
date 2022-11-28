@@ -18,7 +18,6 @@ const QuanLyThongTinViTri: React.FC = () => {
    const { messageDeleteViTri, errMessageDeleteViTri } = useSelector((state: RootState) => state.deleteViTriReducer)
    const { contentPostViTri } = useSelector((state: RootState) => state.postViTriReducer)
    const { contentPutViTri } = useSelector((state: RootState) => state.putViTriIDReducer)
-   // console.log(messageDeleteViTri,errMessageDeleteViTri)
    const [search, setSearch] = useSearchParams({ keyword: '', pageIndex: '1' })
    const [keyword, setKeyword] = useState('')
    const [display, setDisplay] = useState('hidden')
@@ -35,7 +34,7 @@ const QuanLyThongTinViTri: React.FC = () => {
    return (
       <Container className='bg-white m-3 p-3 QuanLyThongTinViTri'>
          <p className='font-bold text-xl mb-3'>Quản lý thông tin vị trí</p>
-         <button onClick={()=>setDisplay('')} className='mb-3 py-1 px-3 font-semibold border border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-white'>Thêm vị trí</button>
+         <button onClick={() => setDisplay('')} className='mb-3 py-1 px-3 font-semibold border border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-white'>Thêm vị trí</button>
          <form onSubmit={handleSubmit(data => {
             setSearch({ keyword: data.keyword, pageIndex: '1' }); setKeyword(data.keyword)
          })} className='flex mb-3'>
@@ -74,7 +73,6 @@ const QuanLyThongTinViTri: React.FC = () => {
                      </td>
                   </tr>
                ))}
-
             </tbody>
          </table>
          <div>
@@ -82,6 +80,7 @@ const QuanLyThongTinViTri: React.FC = () => {
                setSearch({ keyword: keyword, pageIndex: page.toString() })
             }} />
          </div>
+
          {messageDeleteViTri || errMessageDeleteViTri ?
             <div className='fixed top-0 bottom-0 left-0 right-0 bg-black/40'>
                <div className='w-80 h-40 bg-white mx-auto mt-40 shadow flex flex-col justify-center items-center'>
@@ -90,9 +89,11 @@ const QuanLyThongTinViTri: React.FC = () => {
                </div>
             </div> : ''
          }
+
          <div className={`${display} fixed top-0 bottom-0 left-0 right-0 bg-black/50`}>
             <PopupThemViTri setDisplay={setDisplay} />
          </div>
+         
          <div className={`${displayUpdate} fixed top-0 bottom-0 left-0 right-0 bg-black/50`}>
             <PopupCapNhatViTri setDisplayUpdate={setDisplayUpdate} />
          </div>
@@ -106,6 +107,22 @@ const Container = styled.div`
    &.QuanLyThongTinViTri{
       .anticon{
          vertical-align:0;
+      }
+      .ant-pagination-item-active{
+         border-color:#92400e;
+      }
+      .ant-pagination-item-active a{
+         color:#92400e;
+      }
+      .ant-pagination-item:hover{
+         border-color:#92400e;
+      }
+      .ant-pagination-item:hover a{
+         color:#92400e;
+      }
+      .ant-pagination-next:hover .ant-pagination-item-link, .ant-pagination-prev:hover .ant-pagination-item-link{
+         border-color:#92400e;
+         color:#92400e;
       }
    }
 `

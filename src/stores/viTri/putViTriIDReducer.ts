@@ -7,6 +7,7 @@ type InitialState = {
    errContentPutViTri?: any,
    contentPutViTri?: ViTri
 }
+
 const initialState: InitialState = {
    isFetchContentPutViTri: false
 }
@@ -29,12 +30,10 @@ export const { reducer: putViTriIDReducer, actions: putViTriIDActions}  = create
             state.isFetchContentPutViTri = false
             state.errContentPutViTri = undefined
             state.contentPutViTri = action.payload
-            // console.log(action.payload)
          }).addCase(putViTriID.rejected, (state, action) => {
             state.isFetchContentPutViTri = false
             state.contentPutViTri = undefined
             state.errContentPutViTri = action.payload
-            // console.log(action.payload)
          })
    }
 });

@@ -8,6 +8,7 @@ type InitialState = {
    errContentDangNhap?: any,
    contentDangNhap?: DangNhap
 }
+
 const initialState: InitialState = {
    isFetchContentDangNhap: false
 }
@@ -33,12 +34,10 @@ export const { reducer: dangNhapReducer, actions: dangNhapActions } = createSlic
             state.contentDangNhap = action.payload
             localStorage.setItem(UserLogin, JSON.stringify(action.payload.user))
             localStorage.setItem(AccessToken, JSON.stringify(action.payload.token))
-            // console.log(action.payload)
          }).addCase(dangNhap.rejected, (state, action) => {
             state.isFetchContentDangNhap = false
             state.contentDangNhap = undefined
             state.errContentDangNhap = action.payload
-            // console.log(action.payload)
          })
    }
 });

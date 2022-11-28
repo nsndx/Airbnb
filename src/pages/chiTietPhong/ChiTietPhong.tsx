@@ -12,12 +12,11 @@ import { useParams } from 'react-router-dom'
 import DatPhong from './DatPhong'
 import BinhLuan from './BinhLuanPhong'
 
-const ChiTietPhong = () => {
+const ChiTietPhong: React.FC = () => {
    const param = useParams()
    const dispatch = useDispatch<any>()
    const { contentGetPhongThueID } = useSelector((state: RootState) => state.getPhongThueIDReducer)
    const { contentGetViTriAll } = useSelector((state: RootState) => state.getViTriAllReducer)
-   // console.log(contentGetPhongThueID)
 
    useEffect(() => {
       window.scrollTo(0, 0)
@@ -26,7 +25,7 @@ const ChiTietPhong = () => {
    }, [])
 
    return (
-      <div className='ChiTietPhong pt-[95px] pb-3'>
+      <div className='ChiTietPhong pt-16 lg:pt-[95px] pb-3'>
          <div className='container'>
             <div className='py-5'>
                <h3 className='text-2xl font-bold text-amber-800'>Căn hộ ở {(() => {
@@ -38,7 +37,7 @@ const ChiTietPhong = () => {
                      <span><AiFillStar className='inline-block mb-[3px] text-red-500' /> <span className='font-bold'>4,5</span> <span className='underline'>(18 đánh giá)</span></span> . <IoDiamondSharp className=' text-red-500 inline-block' /> <span className='m-0'>Chủ nhà siêu cấp</span>
                   </div>
                   <div>
-                     <IoShareSharp className='inline-block text-base mb-1'/> <span className='underline mr-3'>Chia sẻ</span> <AiOutlineHeart className='inline-block text-base mb-1'/> <span className='underline'>Lưu</span>
+                     <IoShareSharp className='inline-block text-base mb-1' /> <span className='underline mr-3'>Chia sẻ</span> <AiOutlineHeart className='inline-block text-base mb-1' /> <span className='underline'>Lưu</span>
                   </div>
                </div>
             </div>
@@ -106,12 +105,14 @@ const ChiTietPhong = () => {
                      </div>
                   </div>
                </div>
+
                <div className=' md:col-span-6 lg:col-span-5 xl:col-span-4'>
                   <div className='p-5 shadow-md border rounded-xl'>
                      <DatPhong contentGetPhongThueID={contentGetPhongThueID} />
                   </div>
                </div>
             </div>
+            
             <div>
                <BinhLuan contentGetPhongThueID={contentGetPhongThueID} />
             </div>

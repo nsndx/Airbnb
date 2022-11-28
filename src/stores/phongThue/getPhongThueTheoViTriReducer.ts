@@ -8,6 +8,7 @@ type InitialState = {
    errContentGetPhongThueTheoViTri?: any,
    contentGetPhongThueTheoViTri?: PhongThue[]
 }
+
 const initialState: InitialState = {
    isFetchContentGetPhongThueTheoViTri: false
 }
@@ -27,11 +28,9 @@ export const { reducer: getPhongThueTheoViTriReducer, actions: getPhongThueTheoV
          }).addCase(getPhongThueTheoViTri.fulfilled, (state, action) => {
             state.isFetchContentGetPhongThueTheoViTri = false
             state.contentGetPhongThueTheoViTri = action.payload
-            // console.log(action.payload)
          }).addCase(getPhongThueTheoViTri.rejected, (state, action) => {
             state.isFetchContentGetPhongThueTheoViTri = false
             state.errContentGetPhongThueTheoViTri = action.payload
-            // console.log(action.payload)
          })
    }
 });

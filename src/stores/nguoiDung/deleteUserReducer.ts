@@ -1,12 +1,12 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { nguoiDung } from '../../services/nguoiDungServices';
 
-
 type InitialState = {
    isFetchMessageDeleteUser: boolean,
    errMessageDeleteUser?: any,
    messageDeleteUser?: string
 }
+
 const initialState: InitialState = {
    isFetchMessageDeleteUser: false
 }
@@ -28,12 +28,10 @@ export const { reducer: deleteUserReducer, actions: deleteUserActions } = create
             state.isFetchMessageDeleteUser = false
             state.errMessageDeleteUser = undefined
             state.messageDeleteUser = action.payload
-            // console.log(action.payload)
          }).addCase(deleteUser.rejected, (state, action) => {
             state.isFetchMessageDeleteUser = false
             state.messageDeleteUser = undefined
             state.errMessageDeleteUser = action.payload
-            // console.log(action.payload)
          })
    }
 });

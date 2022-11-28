@@ -6,6 +6,7 @@ type InitialState = {
    errMessageDeleteViTri?: any,
    messageDeleteViTri?: string
 }
+
 const initialState: InitialState = {
    isFetchMessageDeleteViTri: false
 }
@@ -27,12 +28,10 @@ export const { reducer: deleteViTriReducer, actions: deleteViTriActions}  = crea
             state.isFetchMessageDeleteViTri = false
             state.errMessageDeleteViTri = undefined
             state.messageDeleteViTri = action.payload
-            // console.log(action.payload)
          }).addCase(deleteViTri.rejected, (state, action) => {
             state.isFetchMessageDeleteViTri = false
             state.messageDeleteViTri = undefined
             state.errMessageDeleteViTri = action.payload
-            // console.log(action.payload)
          })
    }
 });

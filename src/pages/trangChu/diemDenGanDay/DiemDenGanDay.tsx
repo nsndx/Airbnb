@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { RootState } from '../../../stores/configStore'
 import { getViTriPhanTrang } from '../../../stores/viTri/getViTriPhanTrangReducer'
 
-const DiemDenGanDay = () => {
+const DiemDenGanDay: React.FC = () => {
    const dispatch = useDispatch<any>()
    const { contentGetViTri } = useSelector((state: RootState) => state.getViTriPhanTrangReducer)
    const navigate = useNavigate()
@@ -24,7 +24,7 @@ const DiemDenGanDay = () => {
                         <img onClick={() => navigate(`/danhsachphong/${viTri.id}`)} src={viTri.hinhAnh} alt="" className='w-full h-full hover:scale-110 cursor-pointer transition duration-500' />
                      </div>
                      <div className='flex-1 flex flex-col justify-center pl-3'>
-                        <p className='m-0 text-base text-amber-800 font-bold tracking-[1px]'>{viTri.tenViTri}</p>
+                        <p onClick={() => navigate(`/danhsachphong/${viTri.id}`)} className='m-0 text-base text-amber-800 font-bold tracking-[1px] hover:underline hover:cursor-pointer'>{viTri.tenViTri}</p>
                         <p className='m-0 font-semibold'>{viTri.tinhThanh}</p>
                         <p className='m-0 font-semibold'>{viTri.quocGia}</p>
                      </div>

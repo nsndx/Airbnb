@@ -1,21 +1,14 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React from 'react'
+import { useDispatch } from 'react-redux'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { dangNhapActions } from '../../../../stores/auth/dangNhapReducer'
-import { RootState } from '../../../../stores/configStore'
-import { getUsersID } from '../../../../stores/nguoiDung/getUsersIDReducer'
 import { UserLogin } from '../../../../utils/constants/api'
 
-const MenuTop = () => {
+const MenuTop: React.FC = () => {
    const navigate = useNavigate()
    const dispatch = useDispatch<any>()
    const nguoiDungJson = localStorage.getItem(UserLogin)
    const nguoiDung = typeof nguoiDungJson === 'string' ? JSON.parse(nguoiDungJson) : undefined
-   const { contentGetUsersID } = useSelector((state: RootState) => state.getUsersIDReducer)
-   useEffect(() => {
-      // dispatch(getUsersID(nguoiDung.id))      
-   }, [])
-
 
    return (
       <div className='bg-white py-3 text-right space-x-3'>
@@ -25,7 +18,6 @@ const MenuTop = () => {
             dispatch(dangNhapActions.removeContentDangNhap(''))
             navigate("/trangchu");
          }} className="px-4 py-2 text-black bg-white rounded-md shadow hover:bg-amber-500 hover:text-black transition duration-300">Đăng xuất</button>
-
       </div>
    )
 }

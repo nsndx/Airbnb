@@ -10,7 +10,7 @@ type Props = {
 }
 
 const PopupCapNhatAnh: React.FC<Props> = (props) => {
-   const { register, handleSubmit, setValue, reset } = useForm()
+   const { register, handleSubmit, reset } = useForm()
    const [urlHinhAnh, setUrlHinhAnh] = useState('')
    const dispatch = useDispatch<any>()
    const { contentPostUserUpLoadAvatar, errContentPostUserUpLoadAvatar } = useSelector((state: RootState) => state.postUsersUploadAvatarReducer)

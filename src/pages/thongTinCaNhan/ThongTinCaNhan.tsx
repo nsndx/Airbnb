@@ -15,7 +15,7 @@ import PopupCapNhatHoSo from './PopupCapNhatHoSo'
 import PopupCapNhatDatPhongUser from './PopupCapNhatDatPhongUser'
 import { getDatPhongID } from '../../stores/datPhong/getDatPhongIDReducer'
 
-const ThongTinCaNhan = () => {
+const ThongTinCaNhan: React.FC = () => {
    const param = useParams()
    const dispatch = useDispatch<any>()
    const { contentGetViTriAll } = useSelector((state: RootState) => state.getViTriAllReducer)
@@ -26,8 +26,6 @@ const ThongTinCaNhan = () => {
    const { contentPostUserUpLoadAvatar } = useSelector((state: RootState) => state.postUsersUploadAvatarReducer)
    const { contentPutUser } = useSelector((state: RootState) => state.putUserIDReducer)
    const { contentPutDatPhong } = useSelector((state: RootState) => state.putDatPhongIDReducer)
-   // console.log(contentGetUsersID)
-
    const [displayCapNhatAnh, setDisplayCapNhatAnh] = useState('hidden')
    const [displayCapNhatHoSo, setDisplayCapNhatHoSo] = useState('hidden')
    const [displayCapNhatDatPhong, setDisplayCapNhatDatPhong] = useState('hidden')
@@ -45,7 +43,7 @@ const ThongTinCaNhan = () => {
    }, [messageDeleteDatPhong, contentPutDatPhong])
 
    return (
-      <div className='ThongTinCaNhan pt-[110px] pb-5'>
+      <div className='ThongTinCaNhan pt-20 lg:pt-[110px] pb-5'>
          <div className='container'>
             <div className='grid grid-cols-4 gap-5'>
                <div className='col-span-4 lg:col-span-1'>
@@ -131,6 +129,7 @@ const ThongTinCaNhan = () => {
                   ))}
                </div>
             </div>
+
             {messageDeleteDatPhong || errMessageDeleteDatPhong ?
                <div className='fixed top-0 bottom-0 left-0 right-0 bg-black/40'>
                   <div className='w-80 h-40 bg-white mx-auto mt-40 shadow flex flex-col justify-center items-center'>
@@ -139,12 +138,15 @@ const ThongTinCaNhan = () => {
                   </div>
                </div> : ''
             }
+
             <div className={`${displayCapNhatAnh} fixed top-0 bottom-0 left-0 right-0 bg-black/50`}>
                <PopupCapNhatAnh setDisplayCapNhatAnh={setDisplayCapNhatAnh} />
             </div>
+
             <div className={`${displayCapNhatHoSo} fixed top-0 bottom-0 left-0 right-0 bg-black/50`}>
                <PopupCapNhatHoSo setDisplayCapNhatHoSo={setDisplayCapNhatHoSo} contentGetUsersID={contentGetUsersID} />
             </div>
+            
             <div className={`${displayCapNhatDatPhong} fixed top-0 bottom-0 left-0 right-0 bg-black/50`}>
                <PopupCapNhatDatPhongUser setDisplayCapNhatDatPhong={setDisplayCapNhatDatPhong} contentGetViTriAll={contentGetViTriAll} contentGetPhongThueAll={contentGetPhongThueAll} />
             </div>

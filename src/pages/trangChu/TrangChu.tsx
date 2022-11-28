@@ -12,8 +12,8 @@ const TrangChu = () => {
 
    return (
       <div className='TrangChu'>
-         <ChonViTri/>
          <Banner />
+         <ChonViTri/>
          <DiemDenGanDay />
          <OBatCuDau />
       </div>

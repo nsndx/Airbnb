@@ -19,7 +19,7 @@ const DatPhong: React.FC<Props> = (props) => {
    const navigate = useNavigate()
    const nguoiDungJson = localStorage.getItem(UserLogin)
    const nguoiDung = typeof nguoiDungJson === 'string' ? JSON.parse(nguoiDungJson) : undefined
-   const { contentPostDatPhong, errContentPostDatPhong } = useSelector((state: RootState) => state.postDatPhongReducer)
+   const { contentPostDatPhong } = useSelector((state: RootState) => state.postDatPhongReducer)
    const [ngayDen, setNgayDen] = useState(0)
    const [ngayDi, setNgayDi] = useState(0)
    const soKhach = (soKhach: number) => {

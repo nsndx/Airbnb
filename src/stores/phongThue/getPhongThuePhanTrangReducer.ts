@@ -23,11 +23,9 @@ export const { reducer: getPhongThuePhanTrangReducer, actions: getPhongThuePhanT
          }).addCase(getPhongThuePhanTrang.fulfilled, (state, action) => {
             state.isFetchContentGetPhongThue = false
             state.contentGetPhongThue = action.payload
-            // console.log(action.payload)
          }).addCase(getPhongThuePhanTrang.rejected, (state, action) => {
             state.isFetchContentGetPhongThue = false
             state.errContentGetPhongThue = action.payload
-            // console.log(action.payload)
          })
    }
 });

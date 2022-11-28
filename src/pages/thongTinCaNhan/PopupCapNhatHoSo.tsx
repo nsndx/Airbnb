@@ -12,7 +12,7 @@ type Props = {
    contentGetUsersID: NguoiDung | undefined
 }
 
-const PopupCapNhatHoSo:React.FC<Props> = (props) => {
+const PopupCapNhatHoSo: React.FC<Props> = (props) => {
    const { register, handleSubmit, reset } = useForm()
    const dispatch = useDispatch<any>()
    const { contentPutUser, errContentPutUser } = useSelector((state: RootState) => state.putUserIDReducer)
@@ -43,7 +43,6 @@ const PopupCapNhatHoSo:React.FC<Props> = (props) => {
             data.gender === 'true' ? data.gender = true : data.gender = false
             data.birthday = moment(data.birthday).format('DD/MM/YYYY')
             data.role = props.contentGetUsersID?.role
-            // console.log(data)
             dispatch(putUsersID({ id: props.contentGetUsersID?.id.toString(), data: data }))
          })}>
             <div className='mb-2'>
@@ -78,6 +77,7 @@ const PopupCapNhatHoSo:React.FC<Props> = (props) => {
 }
 
 export default PopupCapNhatHoSo
+
 const Container = styled.div`
    &.PopupCapNhatNguoiDung{
       input[type=number]::-webkit-inner-spin-button { 

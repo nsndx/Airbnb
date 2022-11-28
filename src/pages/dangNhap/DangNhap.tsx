@@ -5,7 +5,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { dangNhap, dangNhapActions } from '../../stores/auth/dangNhapReducer';
 import { RootState } from '../../stores/configStore';
 
-const DangNhap = () => {
+const DangNhap: React.FC = () => {
    const { register, handleSubmit } = useForm();
    const dispatch = useDispatch<any>()
    const navigate = useNavigate()
@@ -14,18 +14,16 @@ const DangNhap = () => {
 
    useEffect(() => {
       if (contentDangNhap) {
-         if(contentDangKi){
+         if (contentDangKi) {
             navigate('/trangchu')
-         } else{
+         } else {
             navigate(-1)
          }
       }
    })
-
    useEffect(() => {
       dispatch(dangNhapActions.removeContentDangNhap(''))
    }, [])
-
 
    return (
       <section className="h-screen">
@@ -34,7 +32,6 @@ const DangNhap = () => {
                <div className="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0 mt-10">
                   <p className="text-xl mb-5 font-bold">Đăng nhập tài khoản</p>
                   <form onSubmit={handleSubmit((data) => {
-                     // console.log(data)
                      dispatch(dangNhap(data))
                   })}>
                      <div className="mb-6">

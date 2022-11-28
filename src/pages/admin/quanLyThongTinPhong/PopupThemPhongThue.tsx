@@ -1,11 +1,10 @@
-import React, { memo, useEffect, useState } from 'react'
+import React, { memo, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { RootState } from '../../../stores/configStore'
 import { postPhongThue, postPhongThueActions } from '../../../stores/phongThue/postPhongThueReducer'
 import { ViTri } from '../../../types/viTriTypes'
-
 
 type Props = {
    setDisplay: (display: string) => void,
@@ -17,7 +16,6 @@ const PopupThemPhongThue: React.FC<Props> = (props) => {
    const dispatch = useDispatch<any>()
    const { contentPostPhongThue, errContentPostPhongThue } = useSelector((state: RootState) => state.postPhongThueReducer)
    const [urlHinhAnh, setUrlHinhAnh] = useState('')
-   // console.log(props.contentGetViTriAll)
 
    return (
       <Container className='PopupThemPhongThue w-2/3 py-2 px-5 bg-white mx-auto mt-10 shadow '>
@@ -61,8 +59,6 @@ const PopupThemPhongThue: React.FC<Props> = (props) => {
             data.phongTam = Number(data.phongTam)
             data.giaTien = Number(data.giaTien)
             data.maViTri = Number(data.maViTri)
-
-            // console.log(data)
             dispatch(postPhongThue(data))
          })} >
             <div className='grid grid-cols-12 gap-x-10 mb-10'>

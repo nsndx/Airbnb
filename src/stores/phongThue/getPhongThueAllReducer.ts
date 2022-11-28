@@ -8,6 +8,7 @@ type InitialState = {
    errContentGetPhongThueAll?: any,
    contentGetPhongThueAll?: PhongThue[]
 }
+
 const initialState: InitialState = {
    isFetchContentGetPhongThueAll: false
 }
@@ -23,11 +24,9 @@ export const { reducer: getPhongThueAllReducer, actions: getPhongThueAllActions 
          }).addCase(getPhongThueAll.fulfilled, (state, action) => {
             state.isFetchContentGetPhongThueAll = false
             state.contentGetPhongThueAll = action.payload
-            // console.log(action.payload)
          }).addCase(getPhongThueAll.rejected, (state, action) => {
             state.isFetchContentGetPhongThueAll = false
             state.errContentGetPhongThueAll = action.payload
-            // console.log(action.payload)
          })
    }
 });

@@ -32,7 +32,6 @@ const QuanLyNguoiDung: React.FC = () => {
       }
    }, [search, messageDeleteUser, contentPostUser, contentPutUser])
 
-
    return (
       <Container className='bg-white m-3 p-3 QuanLyNguoiDung'>
          <p className='font-bold text-xl mb-3'>Quản lý người dùng</p>
@@ -91,6 +90,7 @@ const QuanLyNguoiDung: React.FC = () => {
                setSearch({ keyword: keyword, pageIndex: page.toString() })
             }} />
          </div>
+
          {messageDeleteUser || errMessageDeleteUser ?
             <div className='fixed top-0 bottom-0 left-0 right-0 bg-black/40'>
                <div className='w-80 h-40 bg-white mx-auto mt-40 shadow flex flex-col justify-center items-center'>
@@ -99,9 +99,11 @@ const QuanLyNguoiDung: React.FC = () => {
                </div>
             </div> : ''
          }
+
          <div className={`${display} fixed top-0 bottom-0 left-0 right-0 bg-black/50`}>
             <PopupThemNguoiDung setDisplay={setDisplay} />
          </div>
+         
          <div className={`${displayUpdate} fixed top-0 bottom-0 left-0 right-0 bg-black/50`}>
             <PopupCapNhatNguoiDung setDisplayUpdate={setDisplayUpdate} />
          </div>
@@ -115,6 +117,22 @@ const Container = styled.div`
    &.QuanLyNguoiDung{
       .anticon{
          vertical-align:0;
+      }
+      .ant-pagination-item-active{
+         border-color:#92400e;
+      }
+      .ant-pagination-item-active a{
+         color:#92400e;
+      }
+      .ant-pagination-item:hover{
+         border-color:#92400e;
+      }
+      .ant-pagination-item:hover a{
+         color:#92400e;
+      }
+      .ant-pagination-next:hover .ant-pagination-item-link, .ant-pagination-prev:hover .ant-pagination-item-link{
+         border-color:#92400e;
+         color:#92400e;
       }
    }
 `

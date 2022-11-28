@@ -8,6 +8,7 @@ type InitialState = {
    errContentPutPhongThue?: any,
    contentPutPhongThue?: PhongThue
 }
+
 const initialState: InitialState = {
    isFetchContentPutPhongThue: false
 }
@@ -29,12 +30,10 @@ export const { reducer: putPhongThueIDReducer, actions: putPhongThueIDActions } 
             state.isFetchContentPutPhongThue = false
             state.errContentPutPhongThue = undefined
             state.contentPutPhongThue = action.payload
-            // console.log(action.payload)
          }).addCase(putPhongThueID.rejected, (state, action) => {
             state.isFetchContentPutPhongThue = false
             state.contentPutPhongThue = undefined
             state.errContentPutPhongThue = action.payload
-            // console.log(action.payload)
          })
    }
 });

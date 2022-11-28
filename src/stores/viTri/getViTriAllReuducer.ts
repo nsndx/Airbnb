@@ -7,6 +7,7 @@ type InitialState = {
    errContentGetViTriAll?: any,
    contentGetViTriAll?: ViTri[]
 }
+
 const initialState: InitialState = {
    isFetchContentGetViTriAll: false
 }
@@ -22,11 +23,9 @@ export const { reducer: getViTriAllReducer, actions: getViTriAllActions } = crea
          }).addCase(getViTriAll.fulfilled, (state, action) => {
             state.isFetchContentGetViTriAll = false
             state.contentGetViTriAll = action.payload
-            // console.log(action.payload)
          }).addCase(getViTriAll.rejected, (state, action) => {
             state.isFetchContentGetViTriAll = false
             state.errContentGetViTriAll = action.payload
-            // console.log(action.payload)
          })
    }
 });

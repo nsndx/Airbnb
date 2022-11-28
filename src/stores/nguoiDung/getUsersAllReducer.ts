@@ -7,6 +7,7 @@ type InitialState = {
    errContentGetUsersAll?: any,
    contentGetUsersAll?: NguoiDung[]
 }
+
 const initialState: InitialState = {
    isFetchContentGetUsersAll: false
 }
@@ -22,11 +23,9 @@ export const { reducer: getUsersAllReducer, actions: getUsersAllActions } = crea
          }).addCase(getUsersAll.fulfilled, (state, action) => {
             state.isFetchContentGetUsersAll = false
             state.contentGetUsersAll = action.payload
-            // console.log(action.payload)
          }).addCase(getUsersAll.rejected, (state, action) => {
             state.isFetchContentGetUsersAll = false
             state.errContentGetUsersAll = action.payload
-            // console.log(action.payload)
          })
    }
 });

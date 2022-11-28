@@ -7,6 +7,7 @@ type InitialState = {
    errContentGetViTriID?: any,
    contentGetViTriID?: ViTri
 }
+
 const initialState: InitialState = {
    isFetchContentGetViTriID: false
 }
@@ -22,11 +23,9 @@ export const { reducer: getViTriIDReducer, actions: getViTriIDActions } = create
          }).addCase(getViTriID.fulfilled, (state, action) => {
             state.isFetchContentGetViTriID = false
             state.contentGetViTriID = action.payload
-            // console.log(action.payload)
          }).addCase(getViTriID.rejected, (state, action) => {
             state.isFetchContentGetViTriID = false
             state.errContentGetViTriID = action.payload
-            // console.log(action.payload)
          })
    }
 });

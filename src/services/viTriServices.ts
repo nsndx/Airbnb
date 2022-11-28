@@ -2,10 +2,10 @@ import { ContentGetViTriPhanTrang, PostViTri, PutViTri, ViTri } from "../types/v
 import { api } from "../utils/constants/api"
 
 export const viTri = {
-   getViTriAll : () => {
+   getViTriAll: () => {
       return api.get<HttpResponse<ViTri[]>>(`/api/vi-tri`)
    },
-   getViTriPhanTrang : (data: string) => {
+   getViTriPhanTrang: (data: string) => {
       return api.get<HttpResponse<ContentGetViTriPhanTrang<ViTri[]>>>(`/api/vi-tri/phan-trang-tim-kiem?${data}`)
    },
    deleteViTri: (data: string) => {

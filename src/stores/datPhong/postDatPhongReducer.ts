@@ -2,12 +2,12 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { datPhong } from '../../services/datPhongServices';
 import { DatPhong, PostDatPhong } from '../../types/datPhongTypes';
 
-
 type InitialState = {
    isFetchContentPostDatPhong: boolean,
    errContentPostDatPhong?: any,
    contentPostDatPhong?: DatPhong
 }
+
 const initialState: InitialState = {
    isFetchContentPostDatPhong: false
 }
@@ -29,12 +29,10 @@ export const { reducer: postDatPhongReducer, actions: postDatPhongActions } = cr
             state.isFetchContentPostDatPhong = false
             state.errContentPostDatPhong = undefined
             state.contentPostDatPhong = action.payload
-            // console.log(action.payload)
          }).addCase(postDatPhong.rejected, (state, action) => {
             state.isFetchContentPostDatPhong = false
             state.contentPostDatPhong = undefined
             state.errContentPostDatPhong = action.payload
-            // console.log(action.payload)
          })
    }
 });

@@ -6,6 +6,7 @@ type InitialState = {
    errMessageDeletePhongThue?: any,
    messageDeletePhongThue?: string
 }
+
 const initialState: InitialState = {
    isFetchMessageDeletePhongThue: false
 }
@@ -27,12 +28,10 @@ export const { reducer: deletePhongThueReducer, actions: deletePhongThueActions 
             state.isFetchMessageDeletePhongThue = false
             state.errMessageDeletePhongThue = undefined
             state.messageDeletePhongThue = action.payload
-            // console.log(action.payload)
          }).addCase(deletePhongThue.rejected, (state, action) => {
             state.isFetchMessageDeletePhongThue = false
             state.messageDeletePhongThue = undefined
             state.errMessageDeletePhongThue = action.payload
-            // console.log(action.payload)
          })
    }
 });

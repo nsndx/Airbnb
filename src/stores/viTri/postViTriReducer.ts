@@ -7,6 +7,7 @@ type InitialState = {
    errContentPostViTri?: any,
    contentPostViTri?: ViTri
 }
+
 const initialState: InitialState = {
    isFetchContentPostViTri: false
 }
@@ -28,15 +29,12 @@ export const { reducer: postViTriReducer, actions: postViTriActions }  = createS
             state.isFetchContentPostViTri = false
             state.errContentPostViTri = undefined
             state.contentPostViTri = action.payload
-            //   console.log(action.payload)
          }).addCase(postViTri.rejected, (state, action) => {
             state.isFetchContentPostViTri = false
             state.contentPostViTri = undefined
             state.errContentPostViTri = action.payload
-            // console.log(action.payload)
          })
-   }
-   
+   }   
 });
 
 export const postViTri = createAsyncThunk('postViTri',

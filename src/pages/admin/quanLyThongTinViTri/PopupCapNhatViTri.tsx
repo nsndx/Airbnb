@@ -14,7 +14,6 @@ const PopupCapNhatViTri: React.FC<Props> = (props) => {
    const dispatch = useDispatch<any>()
    const { contentGetViTriID } = useSelector((state: RootState) => state.getViTriIDReducer)
    const { contentPutViTri, errContentPutViTri } = useSelector((state: RootState) => state.putViTriIDReducer)
-   // console.log(contentPutViTri, errContentPutViTri)
    const [urlHinhAnh, setUrlHinhAnh] = useState('')
 
    useEffect(() => {
@@ -42,7 +41,6 @@ const PopupCapNhatViTri: React.FC<Props> = (props) => {
          </div>
          <form onSubmit={handleSubmit(data => {
             delete data.image
-            // console.log(data)
             dispatch(putViTriID({ id: contentGetViTriID?.id.toString(), data: data }))
          })}>
             <div className='mb-2'>
@@ -79,6 +77,7 @@ const PopupCapNhatViTri: React.FC<Props> = (props) => {
                <p className='m-0 font-semibold w-40 text-right pr-2'></p>
                <img src={urlHinhAnh || contentGetViTriID?.hinhAnh} alt="..." className='w-40 bg-gray-200' />
             </div>
+            
             {contentPutViTri ? '' : <div className='text-center'>
                <button className="px-7 py-3 bg-amber-800 text-white font-medium text-sm uppercase rounded shadow-md hover:bg-amber-500 transition duration-300">Cập nhật</button>
             </div>}

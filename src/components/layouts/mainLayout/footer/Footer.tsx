@@ -5,7 +5,7 @@ import { ImInstagram } from "react-icons/im"
 import { TfiMoney } from "react-icons/tfi";
 import styled from 'styled-components'
 
-const Footer = () => {
+const Footer: React.FC = () => {
    return (
       <Container className='Footer bg-gray-100'>
          <div className='container'>

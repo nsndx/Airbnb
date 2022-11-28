@@ -1,10 +1,10 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 
-const UserLayout = () => {
+const UserLayout: React.FC = () => {
    return (
       <>
-         <Outlet/>
+         <Outlet />
       </>
    )
 }

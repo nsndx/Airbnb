@@ -7,6 +7,7 @@ type InitialState = {
    errContentPostUserUpLoadAvatar?: any,
    contentPostUserUpLoadAvatar?: NguoiDung
 }
+
 const initialState: InitialState = {
    isFetchContentPostUserUpLoadAvatar: false
 }
@@ -28,12 +29,10 @@ export const { reducer: postUsersUploadAvatarReducer, actions: postUsersUploadAv
             state.isFetchContentPostUserUpLoadAvatar = false
             state.errContentPostUserUpLoadAvatar = undefined
             state.contentPostUserUpLoadAvatar = action.payload
-            // console.log(action.payload)
          }).addCase(postUsersUploadAvatar.rejected, (state, action) => {
             state.isFetchContentPostUserUpLoadAvatar = false
             state.contentPostUserUpLoadAvatar = undefined
             state.errContentPostUserUpLoadAvatar = action.payload
-            // console.log(action.payload)
          })
    }
 });

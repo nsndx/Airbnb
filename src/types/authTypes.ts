@@ -37,5 +37,5 @@ export type DangNhap = {
 
 export type PostDangNhap = {
    email?: string,
-   password?: string  
+   password?: string
 }

@@ -16,7 +16,6 @@ const PopupCapNhatPhongThue: React.FC<Props> = (props) => {
    const dispatch = useDispatch<any>()
    const { contentGetPhongThueID } = useSelector((state: RootState) => state.getPhongThueIDReducer)
    const { contentPutPhongThue, errContentPutPhongThue } = useSelector((state: RootState) => state.putPhongThueIDReducer)
-   // console.log(contentGetPhongThueID)
    const [urlHinhAnh, setUrlHinhAnh] = useState('')
 
    useEffect(() => {
@@ -64,8 +63,6 @@ const PopupCapNhatPhongThue: React.FC<Props> = (props) => {
             data.phongTam = Number(data.phongTam)
             data.giaTien = Number(data.giaTien)
             data.maViTri = Number(data.maViTri)
-
-            // console.log(data)
             dispatch(putPhongThueID({ id: contentGetPhongThueID?.id.toString(), data: data }))
          })} >
             <div className='grid grid-cols-12 gap-x-10 mb-10'>
@@ -153,6 +150,7 @@ const PopupCapNhatPhongThue: React.FC<Props> = (props) => {
                   </div>
                </div>
             </div>
+
             {contentPutPhongThue ? '' : <div className='text-center'>
                <button className="px-7 py-3 bg-amber-800 text-white font-medium text-sm uppercase rounded shadow-md hover:bg-amber-500 transition duration-300">Cập nhật</button>
             </div>}

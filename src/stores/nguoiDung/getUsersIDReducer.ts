@@ -7,6 +7,7 @@ type InitialState = {
    errContentGetUsersID?: any,
    contentGetUsersID?: NguoiDung
 }
+
 const initialState: InitialState = {
    isFetchContentGetUsersID: false
 }
@@ -22,11 +23,9 @@ export const { reducer: getUsersIDReducer, actions: getUsersIDActions} = createS
          }).addCase(getUsersID.fulfilled, (state, action) => {
             state.isFetchContentGetUsersID = false
             state.contentGetUsersID = action.payload
-            // console.log(action.payload)
          }).addCase(getUsersID.rejected, (state, action) => {
             state.isFetchContentGetUsersID = false
             state.errContentGetUsersID = action.payload
-            // console.log(action.payload)
          })
    }
 });

@@ -6,13 +6,12 @@ import { RootState } from '../../stores/configStore'
 import { getPhongThueTheoViTri } from '../../stores/phongThue/getPhongThueTheoViTriReducer'
 import { getViTriAll } from '../../stores/viTri/getViTriAllReuducer'
 
-const DanhSachPhong = () => {
+const DanhSachPhong: React.FC = () => {
    const param = useParams()
    const dispatch = useDispatch<any>()
    const navigate = useNavigate()
    const { contentGetPhongThueTheoViTri } = useSelector((state: RootState) => state.getPhongThueTheoViTriReducer)
    const { contentGetViTriAll } = useSelector((state: RootState) => state.getViTriAllReducer)
-   // console.log(contentGetPhongThueTheoViTri)
 
    useEffect(() => {
       window.scrollTo(0, 0)
@@ -21,7 +20,7 @@ const DanhSachPhong = () => {
    }, [])
 
    return (
-      <div className='DanhSachPhong pt-[95px] pb-5'>
+      <div className='DanhSachPhong pt-16 lg:pt-[95px] pb-5'>
          <div className='container'>
             <div className='grid grid-cols-12 gap-5'>
                <div className='col-span-12 lg:col-span-7 lg:h-[600px] flex flex-col'>
@@ -51,7 +50,7 @@ const DanhSachPhong = () => {
                                     const viTri = contentGetViTriAll?.find(viTri => viTri.id === phongThue.maViTri)
                                     return <span><span>{viTri?.tenViTri}</span> - <span>{viTri?.tinhThanh}</span> - <span>{viTri?.quocGia}</span></span>
                                  })()}</p>
-                                 <p className='text-xl font-bold m-0 text-amber-800'>{phongThue.tenPhong}</p>
+                                 <p onClick={() => navigate(`/chitietphong/${phongThue.id}`)} className='text-xl font-bold m-0 text-amber-800 hover:underline hover:cursor-pointer'>{phongThue.tenPhong}</p>
                                  <p className='m-0 text-green-800'><span>{phongThue.khach} Khách</span> - <span>{phongThue.phongNgu} Phòng ngủ</span> - <span>{phongThue.giuong} Giường</span> - <span>{phongThue.phongTam} Phòng tắm</span></p>
                                  <p className='m-0 text-blue-800'>
                                     <span>{phongThue.wifi ? 'Wifi.' : ''}</span><span> </span>

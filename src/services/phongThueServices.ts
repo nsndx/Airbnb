@@ -22,5 +22,5 @@ export const phongThue = {
    },
    getPhongThueTheoViTri: (data: string) => {
       return api.get<HttpResponse<PhongThue[]>>(`/api/phong-thue/lay-phong-theo-vi-tri?maViTri=${data}`)
-},
+   },
 }

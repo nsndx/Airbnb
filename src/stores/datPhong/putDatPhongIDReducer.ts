@@ -2,12 +2,12 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { datPhong } from '../../services/datPhongServices';
 import { DatPhong, PutDatPhong } from '../../types/datPhongTypes';
 
-
 type InitialState = {
    isFetchContentPutDatPhong: boolean,
    errContentPutDatPhong?: any,
    contentPutDatPhong?: DatPhong
 }
+
 const initialState: InitialState = {
    isFetchContentPutDatPhong: false
 }
@@ -29,12 +29,10 @@ export const { reducer: putDatPhongIDReducer, actions: putDatPhongIDActions } = 
             state.isFetchContentPutDatPhong = false
             state.errContentPutDatPhong = undefined
             state.contentPutDatPhong = action.payload
-            // console.log(action.payload)
          }).addCase(putDatPhongID.rejected, (state, action) => {
             state.isFetchContentPutDatPhong = false
             state.contentPutDatPhong = undefined
             state.errContentPutDatPhong = action.payload
-            // console.log(action.payload)
          })
    }
 });

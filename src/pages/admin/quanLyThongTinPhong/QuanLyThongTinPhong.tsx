@@ -20,7 +20,6 @@ const QuanLyThongTinPhong: React.FC = () => {
    const { messageDeletePhongThue, errMessageDeletePhongThue } = useSelector((state: RootState) => state.deletePhongThueReducer)
    const { contentPostPhongThue } = useSelector((state: RootState) => state.postPhongThueReducer)
    const { contentPutPhongThue } = useSelector((state: RootState) => state.putPhongThueIDReducer)
-   // console.log(contentGetViTriAll)
    const [search, setSearch] = useSearchParams({ keyword: '', pageIndex: '1' })
    const [keyword, setKeyword] = useState('')
    const [display, setDisplay] = useState('hidden')
@@ -114,6 +113,7 @@ const QuanLyThongTinPhong: React.FC = () => {
                setSearch({ keyword: keyword, pageIndex: page.toString() })
             }} />
          </div>
+
          {messageDeletePhongThue || errMessageDeletePhongThue ?
             <div className='fixed top-0 bottom-0 left-0 right-0 bg-black/40'>
                <div className='w-80 h-40 bg-white mx-auto mt-40 shadow flex flex-col justify-center items-center'>
@@ -122,9 +122,11 @@ const QuanLyThongTinPhong: React.FC = () => {
                </div>
             </div> : ''
          }
+
          <div className={`${display} fixed top-0 bottom-0 left-0 right-0 bg-black/50`}>
             <PopupThemPhongThue setDisplay={setDisplay} contentGetViTriAll={contentGetViTriAll} />
          </div>
+
          <div className={`${displayUpdate} fixed top-0 bottom-0 left-0 right-0 bg-black/50`}>
             <PopupCapNhatPhongThue setDisplayUpdate={setDisplayUpdate} contentGetViTriAll={contentGetViTriAll} />
          </div>
@@ -138,6 +140,22 @@ const Container = styled.div`
    &.QuanLyThongTinPhong{
       .anticon{
          vertical-align:0;
+      }
+      .ant-pagination-item-active{
+         border-color:#92400e;
+      }
+      .ant-pagination-item-active a{
+         color:#92400e;
+      }
+      .ant-pagination-item:hover{
+         border-color:#92400e;
+      }
+      .ant-pagination-item:hover a{
+         color:#92400e;
+      }
+      .ant-pagination-next:hover .ant-pagination-item-link, .ant-pagination-prev:hover .ant-pagination-item-link{
+         border-color:#92400e;
+         color:#92400e;
       }
    }
 `

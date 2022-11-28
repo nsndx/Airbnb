@@ -10,12 +10,12 @@ import { getPhongThueID, getPhongThueIDActions } from '../../../stores/phongThue
 import { getPhongThueTheoViTri, getPhongThueTheoViTriActions } from '../../../stores/phongThue/getPhongThueTheoViTriReducer'
 import { ViTri } from '../../../types/viTriTypes'
 
-
 type Props = {
    setDisplay: (display: string) => void,
    maNguoiDung: string | undefined,
    contentGetViTriAll: ViTri[] | undefined
 }
+
 const PopupDatPhong: React.FC<Props> = (props) => {
    const { register, handleSubmit, reset } = useForm()
    const dispatch = useDispatch<any>()
@@ -24,7 +24,6 @@ const PopupDatPhong: React.FC<Props> = (props) => {
    const { contentPostDatPhong, errContentPostDatPhong } = useSelector((state: RootState) => state.postDatPhongReducer)
    const [ngayDen, setNgayDen] = useState(0)
    const [ngayDi, setNgayDi] = useState(0)
-   // console.log(contentGetPhongThueID?.khach)
    const soKhach = (soKhach: number) => {
       let x = []
       for (let i = 0; i < soKhach; i++) {
@@ -32,6 +31,7 @@ const PopupDatPhong: React.FC<Props> = (props) => {
       }
       return x
    }
+
    return (
       <Container className='PopupDatPhong w-1/3 py-2 px-5 bg-white mx-auto mt-10 shadow '>
          <div className='text-right'>
@@ -103,17 +103,13 @@ const PopupDatPhong: React.FC<Props> = (props) => {
                   setNgayDi(ngayDi)
                }} />
             </div>
-            {/* <div className='mb-2'>
-               <p className='m-0 font-semibold'>Số lượng khách:</p>
-               <input required {...register('soLuongKhach')} min={0} max={contentGetPhongThueID?.khach} type="number" className="w-full border border-gray-500 focus:outline-none px-2 py-[2px] focus:border-blue-600 " />
-            </div> */}
             <div className='mb-3'>
                <p className='m-0 font-semibold'>Số lượng khách:</p>
                <select required {...register('soLuongKhach')} className="w-full border border-gray-500 focus:outline-none px-2 py-[2px] focus:border-blue-600 cursor-pointer">
-                  {/* <option value=""></option> */}
                   {contentGetPhongThueID?.khach ? soKhach(contentGetPhongThueID?.khach) : ''}
                </select>
             </div>
+            
             {ngayDi >= ngayDen && ngayDen !== 0 ?
                <div className='flex justify-between mb-3 text-base font-semibold bg-gray-300 p-2'>
                   <p className='m-0'>Tổng tiền: {contentGetPhongThueID?.giaTien}$/ngày <AiOutlineClose className='inline-block mb-1' /> {(ngayDi - ngayDen) / (24 * 3600 * 1000) + 1} ngày</p>

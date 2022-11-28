@@ -23,11 +23,9 @@ export const { reducer: getViTriPhanTrangReducer, actions: getViTriPhanTrangActi
          }).addCase(getViTriPhanTrang.fulfilled, (state, action) => {
             state.isFetchContentGetViTri = false
             state.contentGetViTri = action.payload
-            //   console.log(action.payload)
          }).addCase(getViTriPhanTrang.rejected, (state, action) => {
             state.isFetchContentGetViTri = false
             state.errContentGetViTri = action.payload
-            // console.log(action.payload)
          })
    }
 });

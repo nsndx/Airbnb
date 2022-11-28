@@ -27,7 +27,7 @@ const Banner: React.FC = () => {
    }, [])
 
    return (
-      <Container className='Banner pt-[92px]'>
+      <Container className='Banner pt-16 lg:pt-[92px]'>
          <Carousel draggable arrows>
             {contentGetPhongThue?.data.map((phongThue, i) => (
                <div key={i}>

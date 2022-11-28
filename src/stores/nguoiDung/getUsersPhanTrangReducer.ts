@@ -2,7 +2,6 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { nguoiDung } from '../../services/nguoiDungServices';
 import { ContentGetUsersPhanTrang, NguoiDung } from '../../types/nguoiDungTypes';
 
-
 type InitialState = {
    isFetchContentGetUsers: boolean,
    errContentGetUsers?: any,
@@ -24,11 +23,9 @@ export const { reducer: getUsersPhanTrangReducer, actions: getUsersPhanTrangActi
          }).addCase(getUsersPhanTrang.fulfilled, (state, action) => {
             state.isFetchContentGetUsers = false
             state.contentGetUsers = action.payload
-            // console.log(action.payload)
          }).addCase(getUsersPhanTrang.rejected, (state, action) => {
             state.isFetchContentGetUsers = false
             state.errContentGetUsers = action.payload
-             // console.log(action.payload)
          })
    }
 });

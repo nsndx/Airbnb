@@ -6,7 +6,7 @@ import { RootState } from '../../stores/configStore';
 import { dangKi, dangKiActions } from '../../stores/auth/dangKiReducer';
 import { useNavigate } from 'react-router-dom';
 
-const DangKi = () => {
+const DangKi: React.FC = () => {
    const { register, handleSubmit } = useForm();
    const dispatch = useDispatch<any>()
    const { contentDangKi, errContentDangKi } = useSelector((state: RootState) => state.dangKiReducer)
@@ -26,7 +26,6 @@ const DangKi = () => {
                      data.gender === 'true' ? data.gender = true : data.gender = false
                      data.birthday = moment(data.birthday).format('DD/MM/YYYY')
                      data.role = 'USER'
-                     // console.log(data)
                      dispatch(dangKi(data))
                   })}>
                      <div className='mb-2'>
@@ -62,7 +61,6 @@ const DangKi = () => {
                            <div>
                               <span className='mr-3 text-xl text-green-500'>Đăng kí thành công hãy đến trang:</span>
                               <button type='button' onClick={() => {
-                                 // dispatch(dangKiActions.removeContentDangKi(''))
                                  navigate('/user/dangNhap')
                               }} className="text-xl font-bold text-blue-800 hover:text-blue-600">Đăng nhập!</button>
                            </div>

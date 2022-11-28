@@ -1,6 +1,6 @@
 import React from 'react'
 
-const OBatCuDau = () => {
+const OBatCuDau: React.FC = () => {
    return (
       <div className='OBatCuDau py-5'>
          <div className='container'>

@@ -2,13 +2,12 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { binhLuan } from '../../services/binhLuanServices';
 import { BinhLuan } from '../../types/binhLuanTypes';
 
-
-
 type InitialState = {
    isFetchContentGetBinhLuanAll: boolean,
    errContentGetBinhLuanAll?: any,
    contentGetBinhLuanAll?: BinhLuan[]
 }
+
 const initialState: InitialState = {
    isFetchContentGetBinhLuanAll: false
 }
@@ -24,11 +23,9 @@ export const { reducer: getBinhLuanAllReducer, actions: getBinhLuanAllActions } 
          }).addCase(getBinhLuanAll.fulfilled, (state, action) => {
             state.isFetchContentGetBinhLuanAll = false
             state.contentGetBinhLuanAll = action.payload
-            // console.log(action.payload)
          }).addCase(getBinhLuanAll.rejected, (state, action) => {
             state.isFetchContentGetBinhLuanAll = false
             state.errContentGetBinhLuanAll = action.payload
-            // console.log(action.payload)
          })
    }
 });

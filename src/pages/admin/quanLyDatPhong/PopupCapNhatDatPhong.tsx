@@ -25,10 +25,8 @@ const PopupCapNhatDatPhong: React.FC<Props> = (props) => {
    const { contentGetPhongThueID } = useSelector((state: RootState) => state.getPhongThueIDReducer)
    const { contentGetDatPhongID } = useSelector((state: RootState) => state.getDatPhongIDReducer)
    const { contentPutDatPhong, errContentPutDatPhong } = useSelector((state: RootState) => state.putDatPhongIDReducer)
-
    const phongThue = props.contentGetPhongThueAll?.find(phongThue => phongThue.id === contentGetDatPhongID?.maPhong)
    const viTriID = phongThue?.maViTri.toString()
-   // const phongThueID = phongThue?.id.toString()
    const dSPhongThueTheoViTri = props.contentGetPhongThueAll?.reduce<PhongThue[]>((dSPhongThueTheoViTri, phongThue) => {
       if (phongThue.maViTri.toString() === viTriID) {
          dSPhongThueTheoViTri.push(phongThue)
@@ -37,7 +35,6 @@ const PopupCapNhatDatPhong: React.FC<Props> = (props) => {
    }, [])
    const [ngayDen, setNgayDen] = useState(0)
    const [ngayDi, setNgayDi] = useState(0)
-
    const soKhach = (soKhach: number) => {
       let x = []
       for (let i = 0; i < soKhach; i++) {
@@ -45,11 +42,8 @@ const PopupCapNhatDatPhong: React.FC<Props> = (props) => {
       }
       return x
    }
-   // console.log(contentGetPhongThueID)
+
    useEffect(() => {
-      // if (typeof phongThueID === 'string') {
-      //    dispatch(getPhongThueID(phongThueID))
-      // }
       reset({
          viTri: viTriID,
          maPhong: contentGetDatPhongID?.maPhong,
@@ -130,16 +124,13 @@ const PopupCapNhatDatPhong: React.FC<Props> = (props) => {
                   setNgayDi(ngayDi)
                }} />
             </div>
-            {/* <div className='mb-2'>
-               <p className='m-0 font-semibold'>Số lượng khách:</p>
-               <input required {...register('soLuongKhach')} min={0} max={contentGetPhongThueID?.khach} type="number" className="w-full border border-gray-500 focus:outline-none px-2 py-[2px] focus:border-blue-600 " />
-            </div> */}
             <div className='mb-2'>
                <p className='m-0 font-semibold'>Số lượng khách:</p>
                <select required {...register('soLuongKhach')} className="w-full border border-gray-500 focus:outline-none px-2 py-[2px] focus:border-blue-600 cursor-pointer">
                   {contentGetPhongThueID ? soKhach(contentGetPhongThueID?.khach) : phongThue ? soKhach(phongThue?.khach) : ''}
                </select>
             </div>
+
             {ngayDi >= ngayDen && ngayDen !== 0 ?
                <div className='flex justify-between mb-3 text-base font-semibold bg-gray-300 p-2'>
                   <p className='m-0'>Tổng tiền: {contentGetPhongThueID?.giaTien || phongThue?.giaTien}$/ngày <AiOutlineClose className='inline-block mb-1' /> {(ngayDi - ngayDen) / (24 * 3600 * 1000) + 1} ngày</p>

@@ -15,7 +15,6 @@ const PopupCapNhatNguoiDung: React.FC<Props> = (props) => {
    const dispatch = useDispatch<any>()
    const { contentGetUsersID } = useSelector((state: RootState) => state.getUsersIDReducer)
    const { contentPutUser, errContentPutUser } = useSelector((state: RootState) => state.putUserIDReducer)
-   // console.log(contentGetUsersID)
 
    useEffect(() => {
       reset({
@@ -27,6 +26,7 @@ const PopupCapNhatNguoiDung: React.FC<Props> = (props) => {
          role: contentGetUsersID?.role
       })
    }, [contentGetUsersID])
+
    return (
       <Container className='PopupCapNhatNguoiDung w-1/3 py-2 px-5 bg-white mx-auto mt-10 shadow'>
          <div className='text-right'>
@@ -42,7 +42,6 @@ const PopupCapNhatNguoiDung: React.FC<Props> = (props) => {
          <form onSubmit={handleSubmit(data => {
             data.gender === 'true' ? data.gender = true : data.gender = false
             data.birthday = moment(data.birthday).format('DD/MM/YYYY')
-            // console.log(data)
             dispatch(putUsersID({ id: contentGetUsersID?.id.toString(), data: data }))
          })}>
             <div className='mb-2'>
@@ -75,6 +74,7 @@ const PopupCapNhatNguoiDung: React.FC<Props> = (props) => {
                   <option value='USER'>USER</option>
                </select>
             </div>
+            
             {contentPutUser ? '' : <div className='text-center'>
                <button className="px-7 py-3 bg-amber-800 text-white font-medium text-sm uppercase rounded shadow-md hover:bg-amber-500 transition duration-300">Cập nhật</button>
             </div>}
